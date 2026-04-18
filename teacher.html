@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teacher Portal • Course Manager</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="./index.html" aria-label="Course Manager home">
+          <span class="brand-mark" aria-hidden="true">CM</span>
+          <span class="brand-text">Course Manager</span>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <a class="nav-link" href="./index.html">Home</a>
+          <a class="nav-link" href="./courses.html">Courses</a>
+          <a class="nav-link" href="./student.html">Student Portal</a>
+          <a class="nav-link is-active" href="./teacher.html">Teacher Portal</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <h1 class="page-title">Teacher Portal</h1>
+      <p class="page-subtitle">Prototype UI for adding, editing, and deleting courses.</p>
+
+      <section class="panel" aria-label="Add course">
+        <h2 class="panel-title">Add a Course</h2>
+
+        <form>
+          <div class="form-grid">
+            <div class="field">
+              <label for="courseCode">Course Code</label>
+              <input id="courseCode" name="courseCode" placeholder="e.g., WEB-310" autocomplete="off" />
+            </div>
+
+            <div class="field">
+              <label for="credits">Credits</label>
+              <select id="credits" name="credits">
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="courseTitle">Title</label>
+              <input id="courseTitle" name="courseTitle" placeholder="Course title" autocomplete="off" />
+            </div>
+
+            <div class="field">
+              <label for="instructor">Instructor</label>
+              <input id="instructor" name="instructor" placeholder="e.g., Prof. Kim" autocomplete="off" />
+            </div>
+
+            <div class="field">
+              <label for="schedule">Schedule</label>
+              <input id="schedule" name="schedule" placeholder="e.g., MW 14:00–15:15" autocomplete="off" />
+            </div>
+
+            <div class="field">
+              <label for="capacity">Capacity</label>
+              <input id="capacity" name="capacity" type="number" min="1" placeholder="e.g., 24" />
+            </div>
+
+            <div class="field span-full">
+              <label for="description">Description</label>
+              <textarea id="description" name="description" placeholder="Short course description"></textarea>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button class="button" type="button">Add Course (placeholder)</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel" aria-label="Manage courses">
+        <h2 class="panel-title">Manage Existing Courses (example)</h2>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Course</th>
+              <th>Title</th>
+              <th>Instructor</th>
+              <th>Schedule</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>WEB-210</strong></td>
+              <td>Web Development I</td>
+              <td>Prof. Patel</td>
+              <td>TR 13:00–14:15</td>
+              <td>
+                <span class="badge">Edit (placeholder)</span>
+                <span class="badge">Delete (placeholder)</span>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>DBA-220</strong></td>
+              <td>Database Fundamentals</td>
+              <td>Prof. Rivera</td>
+              <td>TR 09:30–11:20</td>
+              <td>
+                <span class="badge">Edit (placeholder)</span>
+                <span class="badge">Delete (placeholder)</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <small>Course Manager • SDEV 255 Final Project</small>
+      </div>
+    </footer>
+  </body>
+</html>

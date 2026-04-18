@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Portal • Course Manager</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="./index.html" aria-label="Course Manager home">
+          <span class="brand-mark" aria-hidden="true">CM</span>
+          <span class="brand-text">Course Manager</span>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <a class="nav-link" href="./index.html">Home</a>
+          <a class="nav-link" href="./courses.html">Courses</a>
+          <a class="nav-link is-active" href="./student.html">Student Portal</a>
+          <a class="nav-link" href="./teacher.html">Teacher Portal</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <h1 class="page-title">Student Portal</h1>
+      <p class="page-subtitle">Prototype UI for signing up and dropping courses.</p>
+
+      <section class="panel" aria-label="Enroll">
+        <h2 class="panel-title">Sign Up for a Course</h2>
+
+        <form>
+          <div class="form-grid">
+            <div class="field">
+              <label for="studentId">Student ID</label>
+              <input id="studentId" name="studentId" placeholder="e.g., 123456" autocomplete="off" />
+            </div>
+
+            <div class="field">
+              <label for="courseToAdd">Course</label>
+              <select id="courseToAdd" name="courseToAdd">
+                <option value="">Select a course…</option>
+                <option value="CIS-101">CIS-101 — Intro to Information Systems</option>
+                <option value="WEB-210">WEB-210 — Web Development I</option>
+                <option value="DBA-220">DBA-220 — Database Fundamentals</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button class="button" type="button">Enroll (placeholder)</button>
+            <a class="button button-secondary" href="./courses.html">View Courses</a>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel" aria-label="Drop">
+        <h2 class="panel-title">Drop a Course</h2>
+
+        <form>
+          <div class="form-grid">
+            <div class="field">
+              <label for="studentIdDrop">Student ID</label>
+              <input id="studentIdDrop" name="studentIdDrop" placeholder="e.g., 123456" autocomplete="off" />
+            </div>
+
+            <div class="field">
+              <label for="courseToDrop">Course</label>
+              <select id="courseToDrop" name="courseToDrop">
+                <option value="">Select an enrolled course…</option>
+                <option value="WEB-210">WEB-210 — Web Development I</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button class="button" type="button">Drop (placeholder)</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel" aria-label="My schedule">
+        <h2 class="panel-title">My Current Schedule (example)</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Course</th>
+              <th>Title</th>
+              <th>Schedule</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>WEB-210</strong></td>
+              <td>Web Development I</td>
+              <td>TR 13:00–14:15</td>
+              <td><span class="badge">Enrolled</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <small>Course Manager • SDEV 255 Final Project</small>
+      </div>
+    </footer>
+  </body>
+</html>

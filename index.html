@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Course Manager</title>
+		<link rel="stylesheet" href="./styles.css" />
+	</head>
+	<body>
+		<header class="site-header">
+			<div class="container header-inner">
+				<a class="brand" href="./index.html" aria-label="Course Manager home">
+					<span class="brand-mark" aria-hidden="true">CM</span>
+					<span class="brand-text">Course Manager</span>
+				</a>
+
+				<nav class="nav" aria-label="Primary">
+					<a class="nav-link is-active" href="./index.html">Home</a>
+					<a class="nav-link" href="./courses.html">Courses</a>
+					<a class="nav-link" href="./student.html">Student Portal</a>
+					<a class="nav-link" href="./teacher.html">Teacher Portal</a>
+				</nav>
+			</div>
+		</header>
+
+		<main class="container">
+			<section class="hero" aria-label="Welcome">
+				<div>
+					<h1 class="hero-title">Sign up for courses. Manage courses.</h1>
+					<p class="hero-subtitle">
+						A simple web app prototype for students to enroll/drop and for teachers to add, edit, and delete course offerings.
+					</p>
+
+					<div class="hero-actions">
+						<a class="button" href="./student.html">Go to Student Portal</a>
+						<a class="button button-secondary" href="./teacher.html">Go to Teacher Portal</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="grid" aria-label="Quick links">
+				<a class="card" href="./courses.html">
+					<h2 class="card-title">Browse Courses</h2>
+					<p class="card-text">View available course listings (placeholder data for now).</p>
+					<span class="card-cta">Open Courses →</span>
+				</a>
+
+				<a class="card" href="./student.html">
+					<h2 class="card-title">Student Portal</h2>
+					<p class="card-text">Sign up for a course or drop a course you’re enrolled in.</p>
+					<span class="card-cta">Open Student Portal →</span>
+				</a>
+
+				<a class="card" href="./teacher.html">
+					<h2 class="card-title">Teacher Portal</h2>
+					<p class="card-text">Add new courses, edit details, or delete courses.</p>
+					<span class="card-cta">Open Teacher Portal →</span>
+				</a>
+			</section>
+		</main>
+
+		<footer class="site-footer">
+			<div class="container footer-inner">
+				<small>Course Manager • SDEV 255 Final Project</small>
+			</div>
+		</footer>
+	</body>
+</html>

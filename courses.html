@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Courses • Course Manager</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="./index.html" aria-label="Course Manager home">
+          <span class="brand-mark" aria-hidden="true">CM</span>
+          <span class="brand-text">Course Manager</span>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <a class="nav-link" href="./index.html">Home</a>
+          <a class="nav-link is-active" href="./courses.html">Courses</a>
+          <a class="nav-link" href="./student.html">Student Portal</a>
+          <a class="nav-link" href="./teacher.html">Teacher Portal</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <h1 class="page-title">Courses</h1>
+      <p class="page-subtitle">
+        Placeholder course list for the UI milestone. Next step is to load these from the backend.
+      </p>
+
+      <table class="table" aria-label="Course list">
+        <thead>
+          <tr>
+            <th>Course</th>
+            <th>Title</th>
+            <th>Credits</th>
+            <th>Instructor</th>
+            <th>Schedule</th>
+            <th>Seats</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>CIS-101</strong></td>
+            <td>Intro to Information Systems</td>
+            <td>3</td>
+            <td>Prof. Nguyen</td>
+            <td>MW 10:00–11:15</td>
+            <td><span class="badge">18 / 25</span></td>
+          </tr>
+          <tr>
+            <td><strong>WEB-210</strong></td>
+            <td>Web Development I</td>
+            <td>3</td>
+            <td>Prof. Patel</td>
+            <td>TR 13:00–14:15</td>
+            <td><span class="badge">22 / 24</span></td>
+          </tr>
+          <tr>
+            <td><strong>DBA-220</strong></td>
+            <td>Database Fundamentals</td>
+            <td>4</td>
+            <td>Prof. Rivera</td>
+            <td>TR 09:30–11:20</td>
+            <td><span class="badge">12 / 20</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <section class="panel" aria-label="Navigation help">
+        <h2 class="panel-title">Next actions</h2>
+        <div class="actions">
+          <a class="button" href="./student.html">Enroll / Drop (Student)</a>
+          <a class="button button-secondary" href="./teacher.html">Manage Courses (Teacher)</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <small>Course Manager • SDEV 255 Final Project</small>
+      </div>
+    </footer>
+  </body>
+</html>
