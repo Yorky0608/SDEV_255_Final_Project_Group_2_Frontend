@@ -1,0 +1,1 @@
+window.COURSE_MANAGER_API_BASE_URL = "";

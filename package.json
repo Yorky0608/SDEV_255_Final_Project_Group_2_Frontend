@@ -1,10 +1,11 @@
 {
-  "name": "sdev-255-final-project-group-2",
+  "name": "backend",
   "version": "1.0.0",
-  "private": true,
   "main": "copy_backend_script.js",
+  "type": "commonjs",
   "scripts": {
-    "start": "node copy_backend_script.js"
+    "start": "node copy_backend_script.js",
+    "server": "node copy_backend_script.js"
   },
   "dependencies": {
     "cors": "^2.8.5",

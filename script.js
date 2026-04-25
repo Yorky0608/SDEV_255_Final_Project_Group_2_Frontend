@@ -1,4 +1,32 @@
-const API_BASE_URL = "http://localhost:5000";
+function resolveApiBaseUrl() {
+  const configuredBaseUrl = typeof window !== "undefined"
+    ? window.COURSE_MANAGER_API_BASE_URL
+    : "";
+
+  if (typeof configuredBaseUrl === "string" && configuredBaseUrl.trim()) {
+    return configuredBaseUrl.trim().replace(/\/$/, "");
+  }
+
+  const hostname = typeof window !== "undefined" ? window.location.hostname : "";
+
+  if (hostname === "localhost" || hostname === "127.0.0.1") {
+    return "http://localhost:5000";
+  }
+
+  return null;
+}
+
+const API_BASE_URL = resolveApiBaseUrl();
+
+function getApiUrl(path) {
+  if (!API_BASE_URL) {
+    throw new Error(
+      "Backend URL is not configured. Set window.COURSE_MANAGER_API_BASE_URL in config.js to your deployed backend URL."
+    );
+  }
+
+  return `${API_BASE_URL}${path}`;
+}
 
 function renderMessageRow(message) {
   return `<tr><td colspan="6">${message}</td></tr>`;
@@ -14,7 +42,7 @@ function escapeHtml(value) {
 }
 
 async function fetchCourses() {
-  const response = await fetch(`${API_BASE_URL}/courses`);
+  const response = await fetch(getApiUrl("/courses"));
 
   if (!response.ok) {
     throw new Error(`Request failed with status ${response.status}`);
@@ -83,7 +111,7 @@ async function loadCourses() {
   } catch (error) {
     console.error("Error fetching courses:", error);
     coursesTableBody.innerHTML = renderMessageRow(
-      "Unable to load courses. Make sure the backend is running on http://localhost:5000."
+      error.message
     );
   }
 }
@@ -154,7 +182,7 @@ async function initializeStudentPage() {
       scheduleBody.innerHTML = enrolledCourses.map(createStudentScheduleRow).join("");
     } catch (error) {
       console.error("Error loading student data:", error);
-      setStatus(statusElement, "Unable to load course data. Make sure the backend is running.", "error");
+        setStatus(statusElement, error.message, "error");
       scheduleBody.innerHTML = '<tr><td colspan="4">Unable to load schedule.</td></tr>';
     }
   }
@@ -174,7 +202,7 @@ async function initializeStudentPage() {
     }
 
     try {
-      const result = await sendJsonRequest(`${API_BASE_URL}/enroll`, {
+      const result = await sendJsonRequest(getApiUrl("/enroll"), {
         method: "POST",
         body: JSON.stringify({ studentId, courseCode })
       });
@@ -200,7 +228,7 @@ async function initializeStudentPage() {
     }
 
     try {
-      const result = await sendJsonRequest(`${API_BASE_URL}/drop`, {
+      const result = await sendJsonRequest(getApiUrl("/drop"), {
         method: "POST",
         body: JSON.stringify({ studentId, courseCode })
       });
@@ -317,8 +345,8 @@ async function initializeTeacherPage() {
 
     try {
       const url = editingCourseCode
-        ? `${API_BASE_URL}/courses/${encodeURIComponent(editingCourseCode)}`
-        : `${API_BASE_URL}/courses`;
+        ? getApiUrl(`/courses/${encodeURIComponent(editingCourseCode)}`)
+        : getApiUrl("/courses");
       const method = editingCourseCode ? "PUT" : "POST";
       const result = await sendJsonRequest(url, {
         method,
@@ -368,7 +396,7 @@ async function initializeTeacherPage() {
       }
 
       try {
-        const result = await sendJsonRequest(`${API_BASE_URL}/courses/${encodeURIComponent(code)}`, {
+        const result = await sendJsonRequest(getApiUrl(`/courses/${encodeURIComponent(code)}`), {
           method: "DELETE"
         });
 
