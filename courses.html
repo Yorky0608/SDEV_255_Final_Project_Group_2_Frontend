@@ -26,7 +26,7 @@
     <main class="container">
       <h1 class="page-title">Courses</h1>
       <p class="page-subtitle">
-        Placeholder course list for the UI milestone. Next step is to load these from the backend.
+        Live course data is loaded from the backend server.
       </p>
 
       <table class="table" aria-label="Course list">
@@ -40,30 +40,9 @@
             <th>Seats</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="courses-table-body">
           <tr>
-            <td><strong>CIS-101</strong></td>
-            <td>Intro to Information Systems</td>
-            <td>3</td>
-            <td>Prof. Nguyen</td>
-            <td>MW 10:00–11:15</td>
-            <td><span class="badge">18 / 25</span></td>
-          </tr>
-          <tr>
-            <td><strong>WEB-210</strong></td>
-            <td>Web Development I</td>
-            <td>3</td>
-            <td>Prof. Patel</td>
-            <td>TR 13:00–14:15</td>
-            <td><span class="badge">22 / 24</span></td>
-          </tr>
-          <tr>
-            <td><strong>DBA-220</strong></td>
-            <td>Database Fundamentals</td>
-            <td>4</td>
-            <td>Prof. Rivera</td>
-            <td>TR 09:30–11:20</td>
-            <td><span class="badge">12 / 20</span></td>
+            <td colspan="6">Loading courses...</td>
           </tr>
         </tbody>
       </table>
@@ -82,5 +61,6 @@
         <small>Course Manager • SDEV 255 Final Project</small>
       </div>
     </footer>
+    <script src="./script.js"></script>
   </body>
 </html>

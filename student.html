@@ -25,31 +25,29 @@
 
     <main class="container">
       <h1 class="page-title">Student Portal</h1>
-      <p class="page-subtitle">Prototype UI for signing up and dropping courses.</p>
+      <p class="page-subtitle">Enroll in courses, drop them, and view your current schedule.</p>
+      <p id="student-status" class="status-message" aria-live="polite"></p>
 
       <section class="panel" aria-label="Enroll">
         <h2 class="panel-title">Sign Up for a Course</h2>
 
-        <form>
+        <form id="enroll-form">
           <div class="form-grid">
             <div class="field">
               <label for="studentId">Student ID</label>
-              <input id="studentId" name="studentId" placeholder="e.g., 123456" autocomplete="off" />
+              <input id="studentId" name="studentId" placeholder="e.g., 123456" autocomplete="off" required />
             </div>
 
             <div class="field">
               <label for="courseToAdd">Course</label>
               <select id="courseToAdd" name="courseToAdd">
                 <option value="">Select a course…</option>
-                <option value="CIS-101">CIS-101 — Intro to Information Systems</option>
-                <option value="WEB-210">WEB-210 — Web Development I</option>
-                <option value="DBA-220">DBA-220 — Database Fundamentals</option>
               </select>
             </div>
           </div>
 
           <div class="actions">
-            <button class="button" type="button">Enroll (placeholder)</button>
+            <button class="button" type="submit">Enroll</button>
             <a class="button button-secondary" href="./courses.html">View Courses</a>
           </div>
         </form>
@@ -58,30 +56,29 @@
       <section class="panel" aria-label="Drop">
         <h2 class="panel-title">Drop a Course</h2>
 
-        <form>
+        <form id="drop-form">
           <div class="form-grid">
             <div class="field">
               <label for="studentIdDrop">Student ID</label>
-              <input id="studentIdDrop" name="studentIdDrop" placeholder="e.g., 123456" autocomplete="off" />
+              <input id="studentIdDrop" name="studentIdDrop" placeholder="e.g., 123456" autocomplete="off" required />
             </div>
 
             <div class="field">
               <label for="courseToDrop">Course</label>
               <select id="courseToDrop" name="courseToDrop">
                 <option value="">Select an enrolled course…</option>
-                <option value="WEB-210">WEB-210 — Web Development I</option>
               </select>
             </div>
           </div>
 
           <div class="actions">
-            <button class="button" type="button">Drop (placeholder)</button>
+            <button class="button" type="submit">Drop</button>
           </div>
         </form>
       </section>
 
       <section class="panel" aria-label="My schedule">
-        <h2 class="panel-title">My Current Schedule (example)</h2>
+        <h2 class="panel-title">My Current Schedule</h2>
         <table class="table">
           <thead>
             <tr>
@@ -91,12 +88,9 @@
               <th>Status</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="student-schedule-body">
             <tr>
-              <td><strong>WEB-210</strong></td>
-              <td>Web Development I</td>
-              <td>TR 13:00–14:15</td>
-              <td><span class="badge">Enrolled</span></td>
+              <td colspan="4">Enter a student ID to see your enrolled courses.</td>
             </tr>
           </tbody>
         </table>
@@ -108,5 +102,6 @@
         <small>Course Manager • SDEV 255 Final Project</small>
       </div>
     </footer>
+    <script src="./script.js"></script>
   </body>
 </html>

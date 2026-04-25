@@ -25,16 +25,17 @@
 
     <main class="container">
       <h1 class="page-title">Teacher Portal</h1>
-      <p class="page-subtitle">Prototype UI for adding, editing, and deleting courses.</p>
+      <p class="page-subtitle">Add new courses and manage the current catalog.</p>
+      <p id="teacher-status" class="status-message" aria-live="polite"></p>
 
       <section class="panel" aria-label="Add course">
-        <h2 class="panel-title">Add a Course</h2>
+        <h2 id="teacher-form-title" class="panel-title">Add a Course</h2>
 
-        <form>
+        <form id="teacher-course-form">
           <div class="form-grid">
             <div class="field">
               <label for="courseCode">Course Code</label>
-              <input id="courseCode" name="courseCode" placeholder="e.g., WEB-310" autocomplete="off" />
+              <input id="courseCode" name="courseCode" placeholder="e.g., WEB-310" autocomplete="off" required />
             </div>
 
             <div class="field">
@@ -48,22 +49,22 @@
 
             <div class="field">
               <label for="courseTitle">Title</label>
-              <input id="courseTitle" name="courseTitle" placeholder="Course title" autocomplete="off" />
+              <input id="courseTitle" name="courseTitle" placeholder="Course title" autocomplete="off" required />
             </div>
 
             <div class="field">
               <label for="instructor">Instructor</label>
-              <input id="instructor" name="instructor" placeholder="e.g., Prof. Kim" autocomplete="off" />
+              <input id="instructor" name="instructor" placeholder="e.g., Prof. Kim" autocomplete="off" required />
             </div>
 
             <div class="field">
               <label for="schedule">Schedule</label>
-              <input id="schedule" name="schedule" placeholder="e.g., MW 14:00–15:15" autocomplete="off" />
+              <input id="schedule" name="schedule" placeholder="e.g., MW 14:00–15:15" autocomplete="off" required />
             </div>
 
             <div class="field">
               <label for="capacity">Capacity</label>
-              <input id="capacity" name="capacity" type="number" min="1" placeholder="e.g., 24" />
+              <input id="capacity" name="capacity" type="number" min="1" placeholder="e.g., 24" required />
             </div>
 
             <div class="field span-full">
@@ -73,13 +74,14 @@
           </div>
 
           <div class="actions">
-            <button class="button" type="button">Add Course (placeholder)</button>
+            <button id="teacher-submit-button" class="button" type="submit">Add Course</button>
+            <button id="teacher-cancel-edit" class="button button-secondary" type="button" hidden>Cancel Edit</button>
           </div>
         </form>
       </section>
 
       <section class="panel" aria-label="Manage courses">
-        <h2 class="panel-title">Manage Existing Courses (example)</h2>
+        <h2 class="panel-title">Manage Existing Courses</h2>
 
         <table class="table">
           <thead>
@@ -88,29 +90,13 @@
               <th>Title</th>
               <th>Instructor</th>
               <th>Schedule</th>
+              <th>Seats</th>
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="teacher-courses-body">
             <tr>
-              <td><strong>WEB-210</strong></td>
-              <td>Web Development I</td>
-              <td>Prof. Patel</td>
-              <td>TR 13:00–14:15</td>
-              <td>
-                <span class="badge">Edit (placeholder)</span>
-                <span class="badge">Delete (placeholder)</span>
-              </td>
-            </tr>
-            <tr>
-              <td><strong>DBA-220</strong></td>
-              <td>Database Fundamentals</td>
-              <td>Prof. Rivera</td>
-              <td>TR 09:30–11:20</td>
-              <td>
-                <span class="badge">Edit (placeholder)</span>
-                <span class="badge">Delete (placeholder)</span>
-              </td>
+              <td colspan="6">Loading courses...</td>
             </tr>
           </tbody>
         </table>
@@ -122,5 +108,6 @@
         <small>Course Manager • SDEV 255 Final Project</small>
       </div>
     </footer>
+    <script src="./script.js"></script>
   </body>
 </html>
