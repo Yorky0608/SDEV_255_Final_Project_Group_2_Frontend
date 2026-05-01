@@ -26,9 +26,9 @@
 		<main class="container">
 			<section class="hero" aria-label="Welcome">
 				<div>
-					<h1 class="hero-title">Sign up for courses. Manage courses.</h1>
+					<h1 class="hero-title">Sign in once. Enroll or manage by role.</h1>
 					<p class="hero-subtitle">
-						A simple web app prototype for students to enroll/drop and for teachers to add, edit, and delete course offerings.
+						The frontend now uses JWT login, role-based access control, and persistent backend data for student and teacher workflows.
 					</p>
 
 					<div class="hero-actions">
@@ -41,21 +41,28 @@
 			<section class="grid" aria-label="Quick links">
 				<a class="card" href="./courses.html">
 					<h2 class="card-title">Browse Courses</h2>
-					<p class="card-text">View available course listings (placeholder data for now).</p>
+					<p class="card-text">View live course listings after signing in with a student or teacher account.</p>
 					<span class="card-cta">Open Courses →</span>
 				</a>
 
 				<a class="card" href="./student.html">
 					<h2 class="card-title">Student Portal</h2>
-					<p class="card-text">Sign up for a course or drop a course you’re enrolled in.</p>
+					<p class="card-text">Use student login to enroll, drop, and review your saved schedule.</p>
 					<span class="card-cta">Open Student Portal →</span>
 				</a>
 
 				<a class="card" href="./teacher.html">
 					<h2 class="card-title">Teacher Portal</h2>
-					<p class="card-text">Add new courses, edit details, or delete courses.</p>
+					<p class="card-text">Use teacher login to create, edit, delete, and review course rosters.</p>
 					<span class="card-cta">Open Teacher Portal →</span>
 				</a>
+			</section>
+
+			<section class="panel" aria-label="Demo accounts">
+				<h2 class="panel-title">Demo Accounts</h2>
+				<p class="panel-text">Student: <span class="mono">student1 / StudentPass123!</span></p>
+				<p class="panel-text">Teacher: <span class="mono">teacher1 / TeacherPass123!</span></p>
+				<p class="panel-text">Once signed in, the frontend stores the JWT locally and sends it in the <span class="mono">Authorization</span> header.</p>
 			</section>
 		</main>
 

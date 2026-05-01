@@ -25,82 +25,122 @@
 
     <main class="container">
       <h1 class="page-title">Teacher Portal</h1>
-      <p class="page-subtitle">Add new courses and manage the current catalog.</p>
+      <p class="page-subtitle">Sign in with a teacher account to add courses and manage the current catalog.</p>
       <p id="teacher-status" class="status-message" aria-live="polite"></p>
 
-      <section class="panel" aria-label="Add course">
-        <h2 id="teacher-form-title" class="panel-title">Add a Course</h2>
+      <section id="teacher-login-panel" class="panel" aria-label="Teacher login">
+        <h2 class="panel-title">Teacher Login</h2>
+        <p class="panel-text">Teacher actions now require a signed bearer token from the login endpoint.</p>
 
-        <form id="teacher-course-form">
+        <form id="teacher-login-form">
           <div class="form-grid">
             <div class="field">
-              <label for="courseCode">Course Code</label>
-              <input id="courseCode" name="courseCode" placeholder="e.g., WEB-310" autocomplete="off" required />
+              <label for="teacher-username">Username</label>
+              <input id="teacher-username" name="username" placeholder="teacher1" autocomplete="username" required />
             </div>
 
             <div class="field">
-              <label for="credits">Credits</label>
-              <select id="credits" name="credits">
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label for="courseTitle">Title</label>
-              <input id="courseTitle" name="courseTitle" placeholder="Course title" autocomplete="off" required />
-            </div>
-
-            <div class="field">
-              <label for="instructor">Instructor</label>
-              <input id="instructor" name="instructor" placeholder="e.g., Prof. Kim" autocomplete="off" required />
-            </div>
-
-            <div class="field">
-              <label for="schedule">Schedule</label>
-              <input id="schedule" name="schedule" placeholder="e.g., MW 14:00–15:15" autocomplete="off" required />
-            </div>
-
-            <div class="field">
-              <label for="capacity">Capacity</label>
-              <input id="capacity" name="capacity" type="number" min="1" placeholder="e.g., 24" required />
-            </div>
-
-            <div class="field span-full">
-              <label for="description">Description</label>
-              <textarea id="description" name="description" placeholder="Short course description"></textarea>
+              <label for="teacher-password">Password</label>
+              <input id="teacher-password" name="password" type="password" placeholder="Teacher password" autocomplete="current-password" required />
             </div>
           </div>
 
           <div class="actions">
-            <button id="teacher-submit-button" class="button" type="submit">Add Course</button>
-            <button id="teacher-cancel-edit" class="button button-secondary" type="button" hidden>Cancel Edit</button>
+            <button class="button" type="submit">Sign In</button>
           </div>
         </form>
+
+        <p class="helper-text">Demo account: <span class="mono">teacher1 / TeacherPass123!</span></p>
       </section>
 
-      <section class="panel" aria-label="Manage courses">
-        <h2 class="panel-title">Manage Existing Courses</h2>
-
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Course</th>
-              <th>Title</th>
-              <th>Instructor</th>
-              <th>Schedule</th>
-              <th>Seats</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="teacher-courses-body">
-            <tr>
-              <td colspan="6">Loading courses...</td>
-            </tr>
-          </tbody>
-        </table>
+      <section id="teacher-auth-summary" class="panel auth-summary" aria-label="Teacher account summary" hidden>
+        <div id="teacher-auth-summary-content"></div>
+        <div class="auth-summary-actions">
+          <button id="teacher-logout-button" class="button button-secondary" type="button">Sign Out</button>
+        </div>
       </section>
+
+      <section id="teacher-role-message" class="panel" aria-label="Access guidance" hidden>
+        <h2 class="panel-title">Role Access</h2>
+        <p id="teacher-role-message-text" class="panel-text"></p>
+      </section>
+
+      <div id="teacher-portal-content" hidden>
+        <section class="panel" aria-label="Add course">
+          <h2 id="teacher-form-title" class="panel-title">Add a Course</h2>
+
+          <form id="teacher-course-form">
+            <div class="form-grid">
+              <div class="field">
+                <label for="courseCode">Course Code</label>
+                <input id="courseCode" name="courseCode" placeholder="e.g., WEB-310" autocomplete="off" required />
+              </div>
+
+              <div class="field">
+                <label for="credits">Credits</label>
+                <select id="credits" name="credits">
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="courseTitle">Title</label>
+                <input id="courseTitle" name="courseTitle" placeholder="Course title" autocomplete="off" required />
+              </div>
+
+              <div class="field">
+                <label for="instructor">Instructor</label>
+                <input id="instructor" name="instructor" placeholder="e.g., Prof. Kim" autocomplete="off" required />
+              </div>
+
+              <div class="field">
+                <label for="schedule">Schedule</label>
+                <input id="schedule" name="schedule" placeholder="e.g., MW 14:00–15:15" autocomplete="off" required />
+              </div>
+
+              <div class="field">
+                <label for="capacity">Capacity</label>
+                <input id="capacity" name="capacity" type="number" min="1" placeholder="e.g., 24" required />
+              </div>
+
+              <div class="field span-full">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" placeholder="Short course description"></textarea>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button id="teacher-submit-button" class="button" type="submit">Add Course</button>
+              <button id="teacher-cancel-edit" class="button button-secondary" type="button" hidden>Cancel Edit</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="panel" aria-label="Manage courses">
+          <h2 class="panel-title">Manage Existing Courses</h2>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Course</th>
+                <th>Title</th>
+                <th>Instructor</th>
+                <th>Schedule</th>
+                <th>Seats</th>
+                <th>Roster</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="teacher-courses-body">
+              <tr>
+                <td colspan="7">Sign in with a teacher account to manage courses.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
     </main>
 
     <footer class="site-footer">

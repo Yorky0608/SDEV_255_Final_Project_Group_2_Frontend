@@ -26,8 +26,9 @@
     <main class="container">
       <h1 class="page-title">Courses</h1>
       <p class="page-subtitle">
-        Live course data is loaded from the backend server.
+        Live course data is loaded from the backend server after you sign in.
       </p>
+      <p id="courses-status" class="status-message" aria-live="polite"></p>
 
       <table class="table" aria-label="Course list">
         <thead>
@@ -46,6 +47,15 @@
           </tr>
         </tbody>
       </table>
+
+      <section id="courses-auth-panel" class="panel" aria-label="Course access help" hidden>
+        <h2 class="panel-title">Sign In Required</h2>
+        <p class="panel-text">The backend now protects course data with a bearer token. Sign in once from the student or teacher portal, then return here.</p>
+        <div class="actions">
+          <a class="button" href="./student.html">Student Login</a>
+          <a class="button button-secondary" href="./teacher.html">Teacher Login</a>
+        </div>
+      </section>
 
       <section class="panel" aria-label="Navigation help">
         <h2 class="panel-title">Next actions</h2>

@@ -230,6 +230,11 @@ textarea:focus-visible {
   font-size: 18px;
 }
 
+.panel-text {
+  margin: 0 0 10px;
+  color: var(--muted);
+}
+
 .list {
   margin: 0;
   padding-left: 18px;
@@ -340,6 +345,57 @@ textarea {
 
 .status-message[data-state="info"] {
   color: var(--accent);
+}
+
+.auth-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.auth-summary-actions {
+  margin-left: auto;
+}
+
+.auth-summary-meta {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.auth-summary-dot {
+  padding: 0 6px;
+}
+
+.helper-text {
+  margin: 12px 0 0;
+  color: var(--muted);
+}
+
+.mono {
+  font-family: Consolas, "Courier New", monospace;
+}
+
+.table-meta {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.badge-success {
+  border-color: rgba(134, 239, 172, 0.3);
+  color: #86efac;
+  background: rgba(134, 239, 172, 0.12);
+}
+
+.roster-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.muted-text {
+  color: var(--muted);
 }
 
 .table {
